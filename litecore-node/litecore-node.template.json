@@ -1,24 +1,24 @@
 {
-  "network": "${BITCOIN_NETWORK_NAME}",
-  "port": 3001,
+  "network": "${LITECOIN_NETWORK_NAME}",
+  "port": 3002,
   "services": [
     "bitcoind",
-    "insight-api",
-    "insight-ui",
+    "insight-lite-api",
+    "insight-lite-ui",
     "web"
   ],
   "servicesConfig": {
     "bitcoind": {
       "spawn": {
         "datadir": "./data",
-        "exec": "/root/bitcoin-node/node_modules/bitcore-node/bin/bitcoind"
+        "exec": "./node_modules/.bin/litecoind"
       }
     },
-    "insight-ui": {
+    "insight-lite-ui": {
       "routePrefix": "${UI_ROUTE_PREFIX}",
       "apiPrefix": "${API_ROUTE_PREFIX}"
     },
-    "insight-api": {
+    "insight-lite-api": {
       "routePrefix": "${API_ROUTE_PREFIX}",
       "rateLimiterOptions": {
         "limit": "${API_LIMIT_COUNT}",
